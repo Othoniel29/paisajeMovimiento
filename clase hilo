@@ -1,0 +1,40 @@
+package paisaje;
+
+
+
+/**
+ *
+ * @author Freenjt
+ */
+public class Hilo extends Thread {
+
+    int horas, minutos=0,segundos=0;
+    Thread hilo=new Thread(this);
+
+
+    public void iniciar(){
+
+        hilo.start();
+    }
+    public void run(){
+       
+            try{
+            for(int i=0; i<60; i++){
+                Thread.sleep(999);
+                segundos=i;
+                if(segundos>=59){
+                    minutos++;
+                    segundos=0;
+                }
+                if(minutos>=59){
+                    horas++;
+                }
+               ventana.l1.setText(minutos+":"+i);
+                System.out.println(minutos+":"+i);
+            }
+            }catch(Exception e){
+                System.out.println("error="+e.getMessage());
+            }
+       
+    }
+}
